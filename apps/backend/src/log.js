@@ -47,10 +47,45 @@ function noticeError(error, attributes) {
   }
 }
 
+function setTransactionName(name) {
+  const newrelic = getNewRelic();
+  if (newrelic) {
+    newrelic.setTransactionName(name);
+  }
+}
+
+function recordMetric(name, value) {
+  const newrelic = getNewRelic();
+  if (newrelic) {
+    newrelic.recordMetric(name, value);
+  }
+}
+
+function setErrorGroupCallback() {
+  const newrelic = getNewRelic();
+  if (!newrelic) {
+    return;
+  }
+
+  newrelic.setErrorGroupCallback((metadata) => {
+    const expected = metadata.customAttributes?.["error.expected"];
+    const errorType = metadata.customAttributes?.["error.type"];
+    
+    if (expected) {
+      return `expected/${errorType || "general"}`;
+    }
+    
+    return errorType || "unexpected/general";
+  });
+}
+
 module.exports = {
   info: (message, fields) => write("info", message, fields),
   warn: (message, fields) => write("warn", message, fields),
   error: (message, fields) => write("error", message, fields),
   addTransactionAttributes,
   noticeError,
+  setTransactionName,
+  recordMetric,
+  setErrorGroupCallback,
 };

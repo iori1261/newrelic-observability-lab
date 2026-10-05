@@ -178,7 +178,27 @@ FACET name SINCE 30 minutes ago
 
 ---
 
-## 次にやること
+## 10. 次にやること
+
+### エラー追跡を深掘りする
+
+[errors-inbox-walkthrough.md](errors-inbox-walkthrough.md) に進みます。
+
+- Expected と unexpected エラーの違い
+- エラーグループの見方
+- エラー調査の実践手順
+- カスタム属性によるエラー分類
+
+### カスタム属性で分析を強化する
+
+[apm-custom-attributes.md](apm-custom-attributes.md) に進みます。
+
+- ビジネス情報（商品コード、金額）の記録
+- カスタムトランザクション名の活用
+- NRQL による高度な絞り込み
+- ダッシュボードの作成
+
+### SRE として全体像を整理する
 
 [new-relic-sre.md](new-relic-sre.md) の「段階 D 以降」に進みます。
 
