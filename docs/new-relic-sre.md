@@ -323,6 +323,8 @@ Day 1、Day 2 のような日程ではなく、**前の段階ができてから�
 - APM から目的のサービスを迷わず開ける
 - 「注文を作成」がどのサービスを通るか、口頭で説明できる
 
+**推奨ドキュメント**: [first-run.md](first-run.md)
+
 ### 段階 B — ゴールデンシグナルを読む
 
 目的: エラー率とレイテンシと量を、Summary で読み取れる。
@@ -338,6 +340,8 @@ Day 1、Day 2 のような日程ではなく、**前の段階ができてから�
 
 - Summary を見て「今は量の問題か、遅さか、失敗か」を一文で言える
 - エラー件数が多いだけでは「障害」と言わない
+
+**推奨ドキュメント**: [first-run.md](first-run.md)
 
 ### 段階 C — 原因の切り分け
 
@@ -355,6 +359,8 @@ Day 1、Day 2 のような日程ではなく、**前の段階ができてから�
 - 「決済依存の失敗」を、api のバグではなく payments の失敗だと説明できる
 - 「遅い注文」を、payments ではなく api 内の待ちだと説明できる
 
+**推奨ドキュメント**: [first-run.md](first-run.md), [errors-inbox-walkthrough.md](errors-inbox-walkthrough.md)
+
 ### 段階 D — 自分で数字を出す
 
 目的: 画面のプリセットに頼らず、NRQL でエラー率と P95 を出せる。
@@ -364,11 +370,15 @@ Day 1、Day 2 のような日程ではなく、**前の段階ができてから�
 - `percentage`、`percentile`、`FACET`、`TIMESERIES`
 - エンドポイント別とサービス全体の使い分け
 - ダッシュボードにエラー率・P95・Throughput を 3 つ置く
+- カスタム属性を使った絞り込み
 
 できたかの基準:
 
 - 何も見ずにエラー率の NRQL を書ける
 - ダッシュボードだけで「平常 / 注意」を判断できる
+- カスタム属性（`order.sku`、`error.expected` など）で絞り込める
+
+**推奨ドキュメント**: [apm-custom-attributes.md](apm-custom-attributes.md)
 
 ### 段階 E — 気づける状態にする
 
@@ -385,6 +395,8 @@ Day 1、Day 2 のような日程ではなく、**前の段階ができてから�
 
 - 「サーバーエラー」を連打するとアラートが発火する
 - 発火条件を人に説明できる
+
+**推奨ドキュメント**: [errors-inbox-walkthrough.md](errors-inbox-walkthrough.md)
 
 ### 段階 F — スケーリング判断（実務の本丸）
 
